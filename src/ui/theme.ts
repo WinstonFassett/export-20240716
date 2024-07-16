@@ -19,6 +19,7 @@ const theme = extendBaseTheme({
         border: "solid 1px rgba(0,0,0,0.1)",
         borderRadius: "3px",
         fontSize: "10px",
+        fontWeight: "normal",
         padding: "2px 8px 2px 8px",
         textTransform: "none",
         px: "4px",
