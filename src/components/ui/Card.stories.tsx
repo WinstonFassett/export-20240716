@@ -22,6 +22,13 @@ export const Plain: Story = {
   },
 };
 
+export const Bordered: Story = {
+  args: {
+    border: "bordered",
+    children,
+  },
+};
+
 export const Elevated: Story = {
   args: {
     className: 'shadow-xl',
@@ -29,9 +36,3 @@ export const Elevated: Story = {
   },
 };
 
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children,
-  },
-};
