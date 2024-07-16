@@ -176,6 +176,7 @@ export const ConfirmDeliveryCard = () => {
         <Input
           placeholder="Enter order number"
           value={"123456"}
+          onChange={() => {}}
           width="320px"
         />
       </CardBody>
@@ -227,6 +228,7 @@ export const ConfirmDeliveryCardWithInvalidOrderNumber = () => {
           _focus={{ borderColor: "red" }}
           placeholder="Enter order number"
           value={"123456"}
+          onChange={() => {}}
           width="320px"
         />
       </CardBody>

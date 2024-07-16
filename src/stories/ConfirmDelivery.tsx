@@ -56,6 +56,7 @@ export const ConfirmDelivery: React.FC = () => {
               <Input
                 placeholder="Enter order number"
                 value={"123456"}
+                onChange={() => {}}
                 width="320px"
               />
             </CardBody>
