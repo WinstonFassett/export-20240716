@@ -6,7 +6,7 @@ This repo explores the creation of a reusable React component library and design
 ## Recent Bundle Stats
 
 ```
-❯ npm run build     
+❯ npm run build
 
 > spliffy-ui@0.0.0 build
 > npm run build:lib && npm run build:demo
@@ -25,40 +25,44 @@ warn - https://tailwindcss.com/docs/upgrade-guide#configure-content-sources
 ├─ ✔︎ 2 themes added             https://daisyui.com/docs/themes
 ╰─ ❤︎ Support daisyUI project:   https://opencollective.com/daisyui
 
-✓ 7 modules transformed.
+✓ 13 modules transformed.
 
 [vite:dts] Start generate declaration files...
-dist/style.css       15.71 kB │ gzip:  3.78 kB
-dist/spliffy-ui.js  121.32 kB │ gzip: 23.07 kB
-[vite:dts] Declaration files built in 726ms.
+dist/style.css      41.65 kB │ gzip:  7.04 kB
+dist/spliffy-ui.js  67.65 kB │ gzip: 12.74 kB
+[vite:dts] Declaration files built in 877ms.
 
-dist/style.css           15.71 kB │ gzip:  3.78 kB
-dist/spliffy-ui.umd.cjs  66.32 kB │ gzip: 18.10 kB
-✓ built in 1.14s
+dist/style.css           41.65 kB │ gzip: 7.04 kB
+dist/spliffy-ui.umd.cjs  27.16 kB │ gzip: 8.99 kB
+✓ built in 1.48s
 
 > spliffy-ui@0.0.0 build:demo
 > vite build --config vite.config.app.js
 
 vite v5.3.3 building for production...
-transforming (3) src/main.tsx
+
+(!) outDir /Users/winston/dev/interviews/nabis-ui/dist/app is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+transforming (2) ../vite/modulepreload-polyfill.js
 warn - The `purge`/`content` options have changed in Tailwind CSS v3.0.
 warn - Update your configuration file to eliminate this warning.
 warn - https://tailwindcss.com/docs/upgrade-guide#configure-content-sources
 
 🌼   daisyUI 4.12.10
 ├─ ✔︎ 2 themes added             https://daisyui.com/docs/themes
-╰─ ★ Star daisyUI on GitHub     https://github.com/saadeghi/daisyui
+╰─ ❤︎ Support daisyUI project:   https://opencollective.com/daisyui
 
-transforming (222) ../node_modules/react-feather/dist/icons/pocket.js
+transforming (217) ../node_modules/react-feather/dist/icons/plus-circle.js
 🌼   daisyUI 4.12.10
 ├─ ✔︎ 2 themes added             https://daisyui.com/docs/themes
 ╰─ ★ Star daisyUI on GitHub     https://github.com/saadeghi/daisyui
 
-✓ 335 modules transformed.
-dist/app/index.html                   0.71 kB │ gzip:   0.39 kB
-dist/app/assets/index-DEp6BnYb.css   16.18 kB │ gzip:   3.98 kB
-dist/app/assets/index-G1L79Y8B.js   353.30 kB │ gzip: 118.70 kB
-✓ built in 1.04s
+✓ 339 modules transformed.
+../dist/app/index.html                   0.71 kB │ gzip:  0.39 kB
+../dist/app/assets/index-BEU-B_iV.css   42.12 kB │ gzip:  7.21 kB
+../dist/app/assets/index-1eo0KjJP.js   179.38 kB │ gzip: 56.54 kB
+✓ built in 1.10s
 ```
 
 ## Development
