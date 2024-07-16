@@ -8,7 +8,10 @@ export default {
     './node_modules/shadcn-ui/**/*.js',
   ],
   darkMode: ["class", '[data-theme="dark"]'],
-
+  purge: process.env.NODE_ENV === 'production' ? [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",        
+  ] : undefined,  
   theme: {
     container: {
       center: true,
