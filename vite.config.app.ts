@@ -8,5 +8,13 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: '../dist/app',
-  },  
+  },
+  compilerOptions: {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }    
+  }
 });
