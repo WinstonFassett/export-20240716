@@ -5,7 +5,6 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@chakra-ui/storybook-addon",
     "storybook-addon-pseudo-states"
   ],
   framework: {

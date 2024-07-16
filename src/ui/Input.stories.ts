@@ -11,9 +11,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     backgroundColor: { control: "color" },
-    color: { control: "color" },
   },
-  args: { onChange: fn() },
 } satisfies Meta<typeof Input>;
 
 export default meta;

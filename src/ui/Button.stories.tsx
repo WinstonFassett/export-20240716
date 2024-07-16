@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Button } from "./Button";
-import { Stack } from "@chakra-ui/react";
-import { ArrowRight, Mail } from "react-feather";
 
 const meta = {
   title: "UI/Button",
@@ -45,13 +43,13 @@ export const Active: Story = {
 };
 export const Primary: Story = {
   args: {
-    colorScheme: "primary",
+    color: 'primary',
     children: "Button",
   },
 };
 export const PrimaryHover: Story = {
   args: {
-    colorScheme: "primary",
+    color: "primary",
     children: "Button",
   },
   parameters: {
@@ -60,7 +58,7 @@ export const PrimaryHover: Story = {
 };
 export const PrimaryClick: Story = {
   args: {
-    colorScheme: "primary",
+    color: "primary",
     children: "Button",
   },
   parameters: {
@@ -77,7 +75,7 @@ export const Large: Story = {
 
 export const Small: Story = {
   args: {
-    size: "sm",
+    size: "xs",
     children: "Button",
   },
 };
@@ -95,14 +93,3 @@ export const Outline = {
     children: "Button",
   },
 };
-
-export const WithIcon = () => (
-  <Stack direction="row" spacing={4}>
-    <Button leftIcon={<Mail />} colorScheme="teal" variant="solid">
-      Email
-    </Button>
-    <Button rightIcon={<ArrowRight />} colorScheme="teal" variant="outline">
-      Call us
-    </Button>
-  </Stack>
-);

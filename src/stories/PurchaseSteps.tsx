@@ -1,34 +1,50 @@
-import { Box, BoxProps } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 import { CheckCircle, DollarSign } from "react-feather";
 import { Badge } from "../ui/Badge";
-import { Card, CardHeader } from "../ui/Card";
+import { Card } from "../ui/Card";
 import MenuCardSvg from "./assets/figma-menu-card.svg?raw";
 
-const FlexRow = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
-  const { children, ...rest } = props;
-  return (
-    <Box
-      ref={ref}
-      display="flex"
-      flexDirection="row"
-      alignItems="center"
-      gap="1em"
-      {...rest}
-    >
-      {children}
-    </Box>
-  );
-});
+
+
+const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { children, ...rest } = props;
+    return (
+      <div ref={ref} {...rest}>
+        {children}
+      </div>
+    );
+  },
+);
+
+const CardHeader = Div;
+
+const FlexRow = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { children, ...rest } = props;
+    rest.style = {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: "1em",
+      ...rest.style,
+    };
+    return (
+      <div ref={ref} {...rest}>
+        {children}
+      </div>
+    );
+  },
+);
 
 const MenuCard = Card;
 const MenuCardHeader = CardHeader;
-const MenuCardTitle = Box;
-const MenuCardDescription = Box;
-const MenuCardActions = Box;
+const MenuCardTitle = Div;
+const MenuCardDescription = Div;
+const MenuCardActions = Div;
 const MenuCardAction = FlexRow;
-const MenuCardActionIcon = Box;
-const MenuCardActionTitle = Box;
+const MenuCardActionIcon = Div;
+const MenuCardActionTitle = Div;
 const MenuActionSeparator = () => <hr style={{ width: "100%" }} />;
 
 export const PurchaseSteps: React.FC = () => {
@@ -49,58 +65,83 @@ export const PurchaseSteps: React.FC = () => {
         >
           <p>Figma:</p>
           <div dangerouslySetInnerHTML={{ __html: MenuCardSvg }}></div>
-
           <p>Example:</p>
-          <MenuCard variant="elevated" width="100%" maxWidth="700px">
+          <MenuCard
+            className="shadow-lg w-full overflow-clip"
+            variant="elevated"
+            width="100%"
+            maxWidth="700px"
+          >
             <MenuCardHeader
-              borderTopRadius="var(--chakra-radii-md)"
-              padding="14px 16px 14px 16px"
-              backgroundColor="#F5F5F5"
-              borderBottom="1px solid rgba(0,0,0,0.1)"
+              className="bg-[#F5F5F5]  py-[14px] px-[16px] border-b-[1px] border-[rgba(0,0,0,0.1)]"
+                            
             >
               <MenuCardTitle
-                color="#231F20"
-                fontSize="14px"
-                fontWeight="500"
-                lineHeight="19px"
+                className="card-title"
+                style={{
+                  color: "#231F20",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  lineHeight: "19px",
+                }}
               >
                 Order #123456
               </MenuCardTitle>
               <MenuCardDescription
-                fontSize="12px"
-                lineHeight="16.2px"
-                color="#999999"
+                style={{
+                  fontSize: "12px",
+                  lineHeight: "16.2px",
+                  color: "#999999",
+                }}
               >
                 Spliff Decision
               </MenuCardDescription>
             </MenuCardHeader>
-            <MenuCardActions display="flex" flexDirection="column">
-              <MenuCardAction color="#999999" padding="16px">
+            
+            <MenuCardActions
+              className="card-actions"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <MenuCardAction className="w-full" style={{ color: "#999999", padding: "16px" }}>
                 <MenuCardActionIcon>
+                  {/* <Package /> */}
                   <CheckCircle size="16px" />
                 </MenuCardActionIcon>
                 <MenuCardActionTitle
-                  flex={1}
-                  textAlign="left"
-                  fontSize="14px"
-                  lineHeight="19px"
+                  style={{
+                    flex: 1,
+                    textAlign: "left",
+                    fontSize: "14px",
+                    lineHeight: "19px",
+                  }}
                 >
                   Confirm delivery
                 </MenuCardActionTitle>
-                <Badge colorScheme="green" backgroundColor="#B7F4B5">
+                <Badge
+                  colorScheme="green"
+                  backgroundColor="#B7F4B5"
+                  border="solid 1px rgba(0,0,0,0.1)"
+                  paddingX="4px"
+                  borderRadius="3px"
+                  fontSize="10px"
+                  fontWeight="500"
+                  style={{ textTransform: "none" }}
+                >
                   Confirmed
                 </Badge>
               </MenuCardAction>
               <MenuActionSeparator />
-              <MenuCardAction color="#231F20" padding="16px">
+              <MenuCardAction style={{ color: "#231F20", padding: "16px" }}>
                 <MenuCardActionIcon>
                   <DollarSign color="#999999" size="16px" />
                 </MenuCardActionIcon>
                 <MenuCardActionTitle
-                  flex={1}
-                  textAlign="left"
-                  fontSize="14px"
-                  lineHeight="19px"
+                  style={{
+                    flex: 1,
+                    textAlign: "left",
+                    fontSize: "14px",
+                    lineHeight: "19px",
+                  }}
                 >
                   Record payment
                 </MenuCardActionTitle>

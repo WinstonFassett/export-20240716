@@ -1,1 +1,2 @@
-export { Button } from "@chakra-ui/react";
+import './global.css';
+export { Button } from 'react-daisyui';

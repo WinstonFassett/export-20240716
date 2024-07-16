@@ -9,16 +9,31 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    color: { control: "color" },
+  },
   args: { onClick: fn() },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Green: Story = {
+export const Plain: Story = {
+  args: {    
+    children: "Badge",
+  },
+};
+
+export const Primary: Story = {
   args: {
-    colorScheme: "green",
+    color: "primary",
+    children: "Badge",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    color: "success",
     children: "Badge",
   },
 };
@@ -32,7 +47,7 @@ export const Outline: Story = {
 
 export const Red: Story = {
   args: {
-    colorScheme: "red",
+    color: "error",
     children: "Badge",
   },
 };

@@ -1,1 +1,2 @@
-export { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+import './global.css'
+export { Card } from 'react-daisyui'

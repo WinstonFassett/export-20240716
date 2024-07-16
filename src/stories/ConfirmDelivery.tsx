@@ -1,14 +1,26 @@
-import { Box } from "@chakra-ui/react";
-import React from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 import { AlertTriangle, Check, X } from "react-feather";
 import { Button } from "../ui/Button";
-import { Card, CardBody, CardFooter } from "../ui/Card";
+import { Card } from "../ui/Card";
 import { Input } from "../ui/Input";
 import ConfirmDeliverySvg from "./assets/figma-confirm-delivery.svg?raw";
 
-const CardTitle = Box;
-const CardDescription = Box;
-const CardIcon = Box;
+const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { children, ...rest } = props;
+    return (
+      <div ref={ref} {...rest}>
+        {children}
+      </div>
+    );
+  },
+);
+
+const CardTitle = Div;
+const CardDescription = Div;
+const CardIcon = Div;
+const CardBody = Div;
+const CardFooter = Div;
 
 export const ConfirmDelivery: React.FC = () => {
   return (
@@ -28,15 +40,16 @@ export const ConfirmDelivery: React.FC = () => {
         >
           <p>Figma:</p>
           <div dangerouslySetInnerHTML={{ __html: ConfirmDeliverySvg }}></div>
-
           <p>Example:</p>
-          <Card shadow="lg" minWidth="480px" align="center">
+          <Card className="bg-base-100 w-96 shadow-xl overflow-clip w-[480px]" shadow="lg" borderRadius="8px" align="center">
             <CardBody
-              padding="32px 24px 32px 24px"
-              gap="16px"
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
+              style={{
+                padding: "32px 24px 32px 24px",
+                gap: "16px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
               <CardIcon>
                 <AlertTriangle size="24px" color="#999999" />
@@ -57,14 +70,27 @@ export const ConfirmDelivery: React.FC = () => {
                 placeholder="Enter order number"
                 value={"123456"}
                 width="320px"
+                color="#231F20"
+                fontSize="14px"
               />
             </CardBody>
-            <CardFooter gap="8px" justify="space-between" flexWrap="wrap">
-              <Button flex={1} gap="8px" colorScheme="primary">
+            <CardFooter
+              className="card-actions w-full flex gap-[8px] justify-between flex-wrap p-4"
+              
+              flexWrap="wrap"
+              borderTop="solid 1px rgba(0,0,0,0.1)"
+            >
+              <Button
+                color="primary"
+                className="bg-[#FFCD00] text-[#231F20] hover:bg-[#E1B500] border-[rgba(0,0,0,0.1)] black h-[36px] min-h-[36px] p-0 flex-1 gap-[8px]"                
+              >
                 <Check size="12px" />
                 <div>Confirm delivery</div>
               </Button>
-              <Button flex={1} gap="8px" variant="outline">
+              <Button
+                className="h-[36px] min-h-[36px] flex-1 gap-[8px] border-[rgba(0,0,0,0.1)]"      
+                variant="outline"                
+              >
                 <X size="12px" />
                 <div>Cancel</div>
               </Button>
