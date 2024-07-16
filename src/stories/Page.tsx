@@ -1,73 +1,134 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
+import { AlertTriangle, Package, DollarSign, Check, X, CheckCircle } from 'react-feather';
 
-import { Header } from './Header';
-import './page.css';
 
-type User = {
-  name: string;
-};
+const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { children, ...rest } = props;
+  return (
+    <div ref={ref} {...rest}>
+      {children}
+    </div>
+  );
+});
+
+const Button = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
+  const { children, ...rest } = props;
+  rest.style = { display: 'flex', alignItems: 'center', gap: '.5em', ...rest.style };
+  return (
+    <button ref={ref} {...rest}>
+      {children}
+    </button>
+  );
+});
+
+const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>((props, ref) => {
+  const { ...rest } = props;
+  return (
+    <input ref={ref} {...rest} />
+  );
+});
+
+const FlexRow = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { children, ...rest } = props;
+  rest.style = { display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1em', ...rest.style };
+  return (
+    <div ref={ref} {...rest}>
+      {children}
+    </div>
+  );
+});
+
+const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { children, ...rest } = props;
+  rest.style = { ...rest.style, 
+    border: '1px solid #ddd',
+    borderRadius: '0.5em',
+    padding: '1em',
+    margin: '1em',
+    boxShadow: '0 0 2em rgba(0,0,0,0.1)',
+   };
+  return (
+    <div ref={ref} {...rest}>
+      {children}
+    </div>
+  );
+});
+
+
+const CardHeader = Div;
+const CardTitle = Div
+const CardDescription = Div;
+const CardBody = Div;
+const CardFooter = Div;
+const CardIcon = Div
+
+const MenuCard = Card
+const MenuCardHeader = Div
+const MenuCardTitle = Div
+const MenuCardDescription = Div
+const MenuCardActions = Div
+const MenuCardAction = Button
+const MenuCardActionIcon = Div
+const MenuCardActionTitle = Div
+const MenuCardBadge = Div
 
 export const Page: React.FC = () => {
-  const [user, setUser] = React.useState<User>();
 
   return (
     <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
+      <div className="storybook-page">
+        <h2>Confirm Delivery</h2>
+      </div>
+      <div style={{ fontFamily: 'sans-serif'}}>
+        <MenuCard>
+          <MenuCardHeader style={{ padding: '1em', background: '#ccc'}}>
+            <MenuCardTitle style={{fontWeight: 'bold'}}>Order #123456</MenuCardTitle>
+            <MenuCardDescription style={{fontSize: '.8em', color: '#777'}}>Spliff Decision</MenuCardDescription>
+          </MenuCardHeader>
+          <MenuCardActions style={{ display: 'flex', flexDirection: 'column'}}>
+            <MenuCardAction disabled>
+              <MenuCardActionIcon>
+                {/* <Package /> */}
+                <CheckCircle />
+              </MenuCardActionIcon>
+              <MenuCardActionTitle style={{flex: 1, textAlign: 'left'}}>
+                Confirm Delivery
+              </MenuCardActionTitle>
+              <MenuCardBadge style={{ color: 'green '}}>Confirmed</MenuCardBadge>
+            </MenuCardAction>
+            <MenuCardAction>
+              <MenuCardActionIcon>
+                <DollarSign />
+              </MenuCardActionIcon>
+              <MenuCardActionTitle style={{flex:1, textAlign: 'left'}}>Record Payment</MenuCardActionTitle>
+            </MenuCardAction>
+          </MenuCardActions>        
+        </MenuCard>
+        
+        <Card style={{ textAlign: 'center' }}>
+          <CardHeader style={{ padding: '1em', borderBottom: '1px solid gray'}}>
+            <CardIcon><AlertTriangle /></CardIcon>
+            <CardTitle style={{ fontSize: '1.5em'}}>Confirm delivery for Order #123456</CardTitle>
+            <CardDescription style={{ fontSize: '.8em', fontWeight: 'bold' }}>Enter the order number to confirm delivery</CardDescription>
+          </CardHeader>
+          <CardBody style={{ padding: '1em' }}>
+            <Input placeholder='Enter order number' />
+          </CardBody>
+          <CardFooter style={{ borderTop: '1px solid gray' }}>
+            <FlexRow style={{ justifyContent: 'center', gap: '.5em', padding: '1em'}}>
+              <Button disabled>
+                <Check />
+                Confirm Delivery
+              </Button>            
+              <Button>
+                <X />
+                Cancel
+              </Button>
+            </FlexRow>
+          </CardFooter>
+        </Card>
+      </div>
 
-      <section className="storybook-page">
-        <h2>Pages in Storybook</h2>
-        <p>
-          We recommend building UIs with a{' '}
-          <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
-            <strong>component-driven</strong>
-          </a>{' '}
-          process starting with atomic components and ending with pages.
-        </p>
-        <p>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
-        </p>
-        <ul>
-          <li>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
-          </li>
-          <li>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
-          </li>
-        </ul>
-        <p>
-          Get a guided tutorial on component-driven development at{' '}
-          <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-            Storybook tutorials
-          </a>
-          . Read more in the{' '}
-          <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">
-            docs
-          </a>
-          .
-        </p>
-        <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with the{' '}
-          <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-                id="a"
-                fill="#999"
-              />
-            </g>
-          </svg>
-          Viewports addon in the toolbar
-        </div>
-      </section>
     </article>
   );
 };
