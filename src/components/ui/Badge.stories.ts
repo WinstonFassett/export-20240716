@@ -54,7 +54,7 @@ export const Red: Story = {
 
 export const Rounded: Story = {
   args: {
-    borderRadius: "25%",
+    variant: "rounded",
     children: "Badge",
   },
 };
