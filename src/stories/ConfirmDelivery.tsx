@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, forwardRef } from "react";
 import { AlertTriangle, Check, X } from "react-feather";
-import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
-import { Input } from "../ui/Input";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
+import { Input } from "../components/ui/Input";
 import ConfirmDeliverySvg from "./assets/figma-confirm-delivery.svg?raw";
 
 const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
