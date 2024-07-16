@@ -1,7 +1,12 @@
 import type { Preview } from "@storybook/react";
+import theme from '../src/ui/theme';
+
 
 const preview: Preview = {
   parameters: {
+    chakra: {
+      theme,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

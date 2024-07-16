@@ -1,22 +1,33 @@
 {
-  "name": "nabis-ui",
+  "name": "spliffy-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "vite dev --config vite.config.app.js",  
+    "build": "npm run build:lib && npm run build:demo",  
+    "build:lib": "vite build --config vite.config.lib.js",
+    "build:demo": "vite build --config vite.config.app.js",    
+    "viz:lib": "npx vite-bundle-visualizer --config vite.config.lib.js",
+    "viz:demo": "npx vite-bundle-visualizer --config vite.config.app.js",
+    "format": "prettier -c src -w",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --fix",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "framer-motion": "^11.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-feather": "^2.0.10"
   },
   "devDependencies": {
+    "@chakra-ui/storybook-addon": "^5.1.0",
     "@chromatic-com/storybook": "^1.6.1",
     "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-interactions": "^8.2.2",
@@ -35,8 +46,11 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "prettier": "^3.3.3",
     "storybook": "^8.2.2",
+    "storybook-addon-pseudo-states": "^3.1.1",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
