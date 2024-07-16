@@ -3,7 +3,6 @@ import { AlertTriangle, Check, X } from "react-feather";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
-import ConfirmDeliverySvg from "./assets/figma-confirm-delivery.svg?raw";
 
 const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
@@ -39,8 +38,6 @@ export const ConfirmDelivery: React.FC = () => {
           }}
         >
           <p>Figma:</p>
-          <div dangerouslySetInnerHTML={{ __html: ConfirmDeliverySvg }}></div>
-          <p>Example:</p>
           <Card className="bg-base-100 w-96 shadow-xl overflow-clip w-[480px]" shadow="lg" borderRadius="8px" align="center">
             <CardBody
               style={{

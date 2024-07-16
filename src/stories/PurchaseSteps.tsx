@@ -2,9 +2,6 @@ import React, { HTMLAttributes, forwardRef } from "react";
 import { CheckCircle, DollarSign } from "react-feather";
 import { Badge } from "../components/ui/Badge";
 import { Card } from "../components/ui/Card";
-import MenuCardSvg from "./assets/figma-menu-card.svg?raw";
-
-
 
 const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
@@ -63,8 +60,6 @@ export const PurchaseSteps: React.FC = () => {
             gap: "1em",
           }}
         >
-          <p>Figma:</p>
-          <div dangerouslySetInnerHTML={{ __html: MenuCardSvg }}></div>
           <p>Example:</p>
           <MenuCard
             className="shadow-lg w-full overflow-clip"
