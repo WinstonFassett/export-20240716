@@ -31,16 +31,15 @@ export const NonEmpty: Story = {
 
 export const EmptyRed: Story = {
   args: {
-    isInvalid: true,
-    errorBorderColor: "red.300",
+    color: 'error',
     placeholder: "Enter order number",
   },
 };
 
 export const NonEmptyRed: Story = {
   args: {
-    isInvalid: true,
-    errorBorderColor: "red.300",
+    color: 'error',
+
     value: "12345",
   },
 };
